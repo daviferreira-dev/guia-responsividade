@@ -26,7 +26,7 @@ h1   { font-size: 2rem; }     /* 2 x 16px = 32px */
 .artigo { max-width: 65ch; }`
 
 const fontes = [
-  { texto: 'MDN: Valores e unidades CSS', url: 'https://developer.mozilla.org/pt-BR/docs/Learn_web_development/Core/Styling_basics/Values_and_units' },
+  { texto: 'MDN: Valores e unidades CSS', url: 'https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Values_and_units' },
   { texto: 'MDN: Unidades de viewport (vw, vh, dvh)', url: 'https://developer.mozilla.org/en-US/docs/Web/CSS/length#relative_length_units_based_on_viewport' },
   { texto: 'web.dev: Unidades de viewport dinâmicas', url: 'https://web.dev/blog/viewport-units' },
 ]

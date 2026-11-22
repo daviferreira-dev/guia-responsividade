@@ -24,7 +24,7 @@ const codigo = `/* FLEXBOX: organiza itens em UMA linha (ou coluna) */
 
 const fontes = [
   { texto: 'MDN: Guia de flexbox', url: 'https://developer.mozilla.org/pt-BR/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox' },
-  { texto: 'MDN: repeat() e auto-fit', url: 'https://developer.mozilla.org/pt-BR/docs/Web/CSS/repeat' },
+  { texto: 'MDN: repeat() e auto-fit', url: 'https://developer.mozilla.org/en-US/docs/Web/CSS/repeat' },
   { texto: 'CSS-Tricks: auto-fill vs auto-fit', url: 'https://css-tricks.com/auto-sizing-columns-css-grid-auto-fill-vs-auto-fit/' },
 ]
 </script>

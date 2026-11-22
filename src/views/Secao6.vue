@@ -25,7 +25,7 @@ button { min-height: 2.75rem; }   /* 2.75rem = 44px */
 }`
 
 const fontes = [
-  { texto: 'MDN: Acessibilidade em CSS e JavaScript (aria-expanded)', url: 'https://developer.mozilla.org/pt-BR/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-expanded' },
+  { texto: 'MDN: Acessibilidade em CSS e JavaScript (aria-expanded)', url: 'https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-expanded' },
   { texto: 'W3C: Tamanho mínimo de alvo (WCAG 2.2)', url: 'https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html' },
   { texto: 'Chrome DevTools: simular dispositivos móveis', url: 'https://developer.chrome.com/docs/devtools/device-mode' },
 ]
