@@ -1,0 +1,158 @@
+/* Design tokens: todas as cores e espaços do projeto moram aqui. */
+:root {
+  --papel: #f3efe3;
+  --tinta: #16294a;
+  --tinta-suave: #3f4f6b;
+  --traco: rgba(22, 41, 74, 0.1);
+  --destaque: #b83a0a;
+  --ok: #1f6f4a;
+  --serif: Georgia, 'Times New Roman', serif;
+  --mono: ui-monospace, 'Cascadia Code', Consolas, monospace;
+  --esp-1: 0.25rem;
+  --esp-2: 0.5rem;
+  --esp-3: 1rem;
+  --esp-4: 1.5rem;
+  --esp-5: 2.5rem;
+  --raio: 0.125rem;
+  --larg-texto: 46rem;
+}
+
+/* Mobile-first: tudo aqui fora de media query vale para o celular. */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: var(--papel);
+  /* papel quadriculado, só com CSS */
+  background-image:
+    linear-gradient(var(--traco) 1px, transparent 1px),
+    linear-gradient(90deg, var(--traco) 1px, transparent 1px);
+  background-size: 1.5rem 1.5rem;
+  color: var(--tinta);
+  font-family: var(--serif);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+p,
+li {
+  overflow-wrap: break-word;
+}
+
+h1,
+h2 {
+  line-height: 1.15;
+  margin: 0 0 var(--esp-3);
+}
+
+h1 {
+  font-size: 1.875rem;
+}
+
+h2 {
+  font-family: var(--mono);
+  font-size: 0.875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--destaque);
+}
+
+a {
+  color: var(--tinta);
+  text-decoration-color: var(--destaque);
+  text-underline-offset: 0.2em;
+}
+
+button,
+input,
+select {
+  font: inherit;
+  color: inherit;
+  min-height: 2.75rem; /* alvo de toque confortável (~44px) */
+}
+
+button {
+  padding: 0 var(--esp-3);
+  background: var(--tinta);
+  color: var(--papel);
+  border: 2px solid var(--tinta);
+  border-radius: var(--raio);
+  cursor: pointer;
+}
+
+input,
+select {
+  padding: 0 var(--esp-2);
+  background: #fff;
+  border: 2px solid var(--tinta);
+  border-radius: var(--raio);
+}
+
+:focus-visible {
+  outline: 3px solid var(--destaque);
+  outline-offset: 2px;
+}
+
+code {
+  font-family: var(--mono);
+  font-size: 0.9em;
+}
+
+pre {
+  margin: 0;
+  padding: var(--esp-3);
+  overflow-x: auto; /* a rolagem fica dentro do bloco, não na página */
+  background: var(--tinta);
+  color: var(--papel);
+  font-family: var(--mono);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  border-radius: var(--raio);
+}
+
+main {
+  max-width: var(--larg-texto);
+  margin-inline: auto;
+  padding: var(--esp-4) var(--esp-3) 6rem;
+}
+
+/* Caixa de laboratório, usada por todos os labs */
+.lab {
+  padding: var(--esp-3);
+  background: rgba(255, 255, 255, 0.7);
+  border: 2px dashed var(--tinta);
+  border-radius: var(--raio);
+}
+
+.lab-leitura {
+  margin: var(--esp-3) 0 0;
+  font-family: var(--mono);
+  font-size: 0.875rem;
+}
+
+@media (min-width: 48rem) {
+  h1 {
+    font-size: 2.75rem;
+  }
+
+  main {
+    padding: var(--esp-5) var(--esp-4) 6rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
