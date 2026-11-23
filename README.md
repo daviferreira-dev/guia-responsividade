@@ -4,7 +4,7 @@ Guia interativo em Vue 3 + Vite que ensina a criar páginas responsivas. Projeto
 
 - **Site publicado:** https://guia-responsividade.vercel.app/
 - **Repositório:** https://github.com/daviferreira-dev/guia-responsividade
-- **Dupla:** (nomes)
+- **Dupla:** Davi Ferreira da Cunha e João Vitor Charleaux
 
 ## Seções
 
