@@ -65,6 +65,7 @@ h1 {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  filter: drop-shadow(0 0 0.75rem rgba(255, 61, 139, 0.55)); /* brilho neon */
 }
 
 /* sol retrô no horizonte */
@@ -81,6 +82,24 @@ body::before {
   background: linear-gradient(#ffd23f, #ff3d8b);
   opacity: 0.2;
   pointer-events: none;
+}
+
+/* palmeiras em silhueta nos cantos */
+body::after {
+  content: '';
+  position: fixed;
+  inset: auto 0 0 0;
+  z-index: -1;
+  height: 22rem;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 400'%3E%3Cpath d='M100 400C96 300 104 220 100 120' stroke='%230a0213' stroke-width='8' fill='none'/%3E%3Cg fill='%230a0213'%3E%3Cpath d='M100 120C60 90 20 100 0 140 40 110 70 110 100 120Z'/%3E%3Cpath d='M100 120C140 90 180 100 200 140 160 110 130 110 100 120Z'/%3E%3Cpath d='M100 120C70 60 30 50 10 70 50 70 80 90 100 120Z'/%3E%3Cpath d='M100 120C130 60 170 50 190 70 150 70 120 90 100 120Z'/%3E%3Cpath d='M100 120C95 70 100 40 100 20 108 50 106 90 100 120Z'/%3E%3C/g%3E%3C/svg%3E") no-repeat left 1rem bottom / auto 100%,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 400'%3E%3Cpath d='M100 400C96 300 104 220 100 120' stroke='%230a0213' stroke-width='8' fill='none'/%3E%3Cg fill='%230a0213'%3E%3Cpath d='M100 120C60 90 20 100 0 140 40 110 70 110 100 120Z'/%3E%3Cpath d='M100 120C140 90 180 100 200 140 160 110 130 110 100 120Z'/%3E%3Cpath d='M100 120C70 60 30 50 10 70 50 70 80 90 100 120Z'/%3E%3Cpath d='M100 120C130 60 170 50 190 70 150 70 120 90 100 120Z'/%3E%3Cpath d='M100 120C95 70 100 40 100 20 108 50 106 90 100 120Z'/%3E%3C/g%3E%3C/svg%3E") no-repeat right 3rem bottom / auto 75%;
+  pointer-events: none;
+}
+
+h2::before {
+  content: '▌ ';
+  color: var(--destaque);
 }
 
 h2 {
@@ -160,6 +179,7 @@ main {
   background: var(--painel);
   border: 2px dashed var(--ok);
   border-radius: var(--raio);
+  box-shadow: 0 0 1.5rem rgba(25, 227, 209, 0.18);
 }
 
 .lab-leitura {

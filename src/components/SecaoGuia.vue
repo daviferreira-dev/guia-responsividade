@@ -80,6 +80,9 @@ section {
   padding: var(--esp-3);
   background: var(--painel);
   border-left: 6px solid var(--ok);
+  box-shadow: 0 0 1.5rem rgba(25, 227, 209, 0.18);
+  /* canto cortado, como painel de HUD */
+  clip-path: polygon(0 0, calc(100% - 1.25rem) 0, 100% 1.25rem, 100% 100%, 0 100%);
 }
 
 .pergunta {
