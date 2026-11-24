@@ -12,27 +12,26 @@ watch(() => route.fullPath, () => (aberto.value = false))
 </script>
 
 <template>
-  <!-- href="#" não serve: a rota usa o hash da URL, então o foco vai por JS -->
+  <!-- href="#/" porque a rota usa o hash da URL; o foco vai por JS -->
   <a class="pular" href="#/" @click.prevent="$refs.principal.focus()">Pular para o conteúdo</a>
   <header class="topo">
     <RouterLink to="/" class="marca">Caderno de<br />Responsividade</RouterLink>
-    <!-- No celular o menu vira este botão -->
-    <button
-      class="menu-btn"
-      type="button"
-      aria-controls="menu"
-      :aria-expanded="aberto"
-      @click="aberto = !aberto"
-    >
+    <!-- Celular e tablet: o menu vira este botão -->
+    <button class="menu-btn" type="button" aria-controls="menu" :aria-expanded="aberto" @click="aberto = !aberto">
       {{ aberto ? 'Fechar' : 'Menu' }}
     </button>
     <nav id="menu" :class="{ aberto }" aria-label="Seções do guia">
-      <RouterLink v-for="s in secoes" :key="s.rota" :to="s.rota">{{ s.curto }}</RouterLink>
+      <RouterLink v-for="(s, i) in secoes" :key="s.rota" :to="s.rota" :style="{ '--i': i }">
+        <span class="num">{{ s.num }}</span>
+        <span>{{ s.nome }}</span>
+      </RouterLink>
     </nav>
   </header>
-  <main ref="principal" tabindex="-1">
-    <RouterView />
-  </main>
+  <div class="pagina">
+    <main ref="principal" tabindex="-1">
+      <RouterView />
+    </main>
+  </div>
   <IndicadorLargura />
 </template>
 
@@ -41,6 +40,7 @@ watch(() => route.fullPath, () => (aberto.value = false))
   position: absolute;
   left: var(--esp-2);
   top: -4rem;
+  z-index: 20;
   padding: var(--esp-2) var(--esp-3);
   background: var(--tinta);
   color: var(--papel);
@@ -50,6 +50,7 @@ watch(() => route.fullPath, () => (aberto.value = false))
   top: var(--esp-2);
 }
 
+/* Mobile-first: barra no topo */
 .topo {
   display: flex;
   flex-wrap: wrap;
@@ -58,7 +59,6 @@ watch(() => route.fullPath, () => (aberto.value = false))
   gap: var(--esp-2) var(--esp-3);
   padding: var(--esp-3);
   background: linear-gradient(90deg, #2a0b45, #7a1760 60%, #c2306b);
-  color: var(--tinta);
   border-bottom: 4px solid var(--amarelo);
 }
 
@@ -67,7 +67,7 @@ watch(() => route.fullPath, () => (aberto.value = false))
   font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  line-height: 1.2;
+  line-height: 1.15;
   color: var(--tinta);
   text-decoration: none;
 }
@@ -78,11 +78,11 @@ watch(() => route.fullPath, () => (aberto.value = false))
   box-shadow: inset 0 0 0 2px var(--tinta);
 }
 
-/* Celular: o menu fica escondido até o botão abrir */
 nav {
   display: none;
   flex-basis: 100%;
   flex-direction: column;
+  gap: var(--esp-1);
 }
 
 nav.aberto {
@@ -90,23 +90,61 @@ nav.aberto {
 }
 
 nav a {
-  padding: var(--esp-3) 0;
-  border-top: 1px solid rgba(255, 241, 220, 0.3);
+  display: grid;
+  grid-template-columns: 2.5rem 1fr;
+  align-items: center;
+  padding: var(--esp-2) var(--esp-2);
   color: var(--tinta);
-  font-family: var(--mono);
-  font-size: 0.875rem;
+  font-size: 0.9375rem;
   text-decoration: none;
+  border-radius: var(--raio);
+}
+
+nav a:hover {
+  background: rgba(255, 241, 220, 0.12);
+}
+
+.num {
+  font-family: var(--titulo);
+  font-size: 1.25rem;
+  color: var(--amarelo);
 }
 
 nav a.router-link-exact-active {
-  color: var(--amarelo);
-  text-decoration: underline;
-  text-decoration-color: var(--amarelo);
-  text-underline-offset: 0.4em;
+  background: var(--sol);
+  color: var(--papel);
+  font-weight: bold;
 }
 
-/* Tablet em diante: o botão some e o menu vira uma linha */
-@media (min-width: 48rem) {
+nav a.router-link-exact-active .num {
+  color: var(--papel);
+}
+
+/* Desktop: menu fixo na lateral esquerda */
+@media (min-width: 64rem) {
+  .topo {
+    position: fixed;
+    inset: 0 auto 0 0;
+    z-index: 5;
+    width: 17rem;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: var(--esp-4);
+    padding: var(--esp-4) var(--esp-3);
+    overflow-y: auto;
+    background: linear-gradient(180deg, #1d0733, #4a0f55 55%, #a8235f);
+    border-bottom: 0;
+    border-right: 4px solid var(--amarelo);
+  }
+
+  .marca {
+    padding-bottom: var(--esp-3);
+    font-size: 1.625rem;
+    border-bottom: 2px solid rgba(255, 241, 220, 0.25);
+  }
+
   .menu-btn {
     display: none;
   }
@@ -114,14 +152,23 @@ nav a.router-link-exact-active {
   nav {
     display: flex;
     flex-basis: auto;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 0 var(--esp-3);
   }
 
   nav a {
-    padding: var(--esp-2) 0;
-    border-top: 0;
+    padding: 0.7rem var(--esp-2);
+    animation: entra 0.5s both;
+    animation-delay: calc(var(--i) * 70ms);
+  }
+
+  .pagina {
+    padding-left: 17rem;
+  }
+}
+
+@keyframes entra {
+  from {
+    opacity: 0;
+    transform: translateX(-1rem);
   }
 }
 </style>
