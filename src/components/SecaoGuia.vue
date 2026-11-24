@@ -78,7 +78,7 @@ section {
 
 .resposta {
   padding: var(--esp-3);
-  background: #fff;
+  background: var(--painel);
   border-left: 6px solid var(--ok);
 }
 

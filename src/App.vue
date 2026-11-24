@@ -57,24 +57,25 @@ watch(() => route.fullPath, () => (aberto.value = false))
   justify-content: space-between;
   gap: var(--esp-2) var(--esp-3);
   padding: var(--esp-3);
-  background: var(--tinta);
-  color: var(--papel);
-  border-bottom: 4px solid var(--destaque);
+  background: linear-gradient(90deg, #2a0b45, #7a1760 60%, #c2306b);
+  color: var(--tinta);
+  border-bottom: 4px solid var(--amarelo);
 }
 
 .marca {
-  font-family: var(--mono);
-  font-size: 0.875rem;
-  font-weight: bold;
+  font-family: var(--titulo);
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
   line-height: 1.2;
-  color: var(--papel);
+  color: var(--tinta);
   text-decoration: none;
 }
 
 .menu-btn {
   background: transparent;
-  color: var(--papel);
-  border-color: var(--papel);
+  color: var(--tinta);
+  box-shadow: inset 0 0 0 2px var(--tinta);
 }
 
 /* Celular: o menu fica escondido até o botão abrir */
@@ -90,17 +91,17 @@ nav.aberto {
 
 nav a {
   padding: var(--esp-3) 0;
-  border-top: 1px solid rgba(243, 239, 227, 0.3);
-  color: var(--papel);
+  border-top: 1px solid rgba(255, 241, 220, 0.3);
+  color: var(--tinta);
   font-family: var(--mono);
   font-size: 0.875rem;
   text-decoration: none;
 }
 
 nav a.router-link-exact-active {
-  color: #ffb590;
+  color: var(--amarelo);
   text-decoration: underline;
-  text-decoration-color: var(--destaque);
+  text-decoration-color: var(--amarelo);
   text-underline-offset: 0.4em;
 }
 

@@ -4,8 +4,8 @@ import { onUnmounted, ref } from 'vue'
 // Lab 5: a "imagem" chega 2 segundos depois, como numa conexão lenta.
 // Sem width/height o navegador não sabe o tamanho antes de baixar e o texto pula.
 const desenho = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
-<rect width="800" height="450" fill="#16294a"/><path d="M0 330 220 150 400 290 560 190 800 360V450H0Z" fill="#b83a0a"/>
-<circle cx="640" cy="90" r="40" fill="#f3efe3"/><text x="24" y="48" fill="#f3efe3" font-family="monospace" font-size="28">800 × 450</text></svg>`
+<rect width="800" height="450" fill="#2a0b45"/><path d="M0 330 220 150 400 290 560 190 800 360V450H0Z" fill="#ff3d8b"/>
+<circle cx="640" cy="90" r="40" fill="#ffd23f"/><text x="24" y="48" fill="#ffd23f" font-family="monospace" font-size="28">800 × 450</text></svg>`
 const src = 'data:image/svg+xml,' + encodeURIComponent(desenho)
 
 const carregada = ref(false)

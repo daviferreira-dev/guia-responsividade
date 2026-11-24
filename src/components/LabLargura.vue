@@ -68,7 +68,7 @@ const regraAtiva = computed(() => larguraDoLayout.value >= 480)
 
 .moldura {
   overflow: hidden;
-  background: #fff;
+  background: var(--painel);
   border: 3px solid var(--tinta);
 }
 
@@ -91,12 +91,13 @@ const regraAtiva = computed(() => larguraDoLayout.value >= 480)
 }
 
 .barra {
-  background: var(--tinta);
+    background: var(--sol);
   color: var(--papel);
 }
 
 .menu {
-  background: #ffb590;
+  background: var(--amarelo);
+  color: var(--papel);
 }
 
 .cartao {

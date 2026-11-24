@@ -22,7 +22,7 @@ defineEmits(['remover']) // o filho avisa, o pai decide
 <Cartao v-for="a in animais" :key="a.id" :titulo="a.nome" @remover="remover(a.id)" />
 
 /* design tokens: cores e espaços definidos uma vez */
-:root { --cor-destaque: #b83a0a; --esp-3: 1rem; }
+:root { --cor-destaque: #ff3d8b; --esp-3: 1rem; }
 .botao { background: var(--cor-destaque); padding: var(--esp-3); }
 
 // rota carregada sob demanda: o código só baixa quando a página é aberta

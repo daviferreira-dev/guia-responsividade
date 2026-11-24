@@ -35,7 +35,7 @@ const ativo = computed(() => {
   gap: var(--esp-2);
   padding: var(--esp-1) var(--esp-2);
   background: var(--destaque);
-  color: #fff;
+  color: var(--papel);
   font-family: var(--mono);
   font-size: 0.75rem;
   border-radius: var(--raio);

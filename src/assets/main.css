@@ -1,12 +1,16 @@
 /* Design tokens: todas as cores e espaços do projeto moram aqui. */
 :root {
-  --papel: #f3efe3;
-  --tinta: #16294a;
-  --tinta-suave: #3f4f6b;
-  --traco: rgba(22, 41, 74, 0.1);
-  --destaque: #b83a0a;
-  --ok: #1f6f4a;
-  --serif: Georgia, 'Times New Roman', serif;
+  --papel: #12041f; /* fundo escuro (noite) */
+  --tinta: #fff1dc; /* texto claro */
+  --tinta-suave: #c9b6d9;
+  --painel: rgba(36, 14, 58, 0.85);
+  --destaque: #ff3d8b; /* rosa neon */
+  --laranja: #ff8a3d;
+  --amarelo: #ffd23f;
+  --ok: #19e3d1; /* ciano */
+  --sol: linear-gradient(90deg, #ff3d8b, #ff8a3d 60%, #ffd23f);
+  --titulo: Impact, 'Arial Black', 'Arial Narrow Bold', sans-serif;
+  --serif: 'Segoe UI', system-ui, -apple-system, sans-serif;
   --mono: ui-monospace, 'Cascadia Code', Consolas, monospace;
   --esp-1: 0.25rem;
   --esp-2: 0.5rem;
@@ -26,12 +30,8 @@
 
 body {
   margin: 0;
-  background-color: var(--papel);
-  /* papel quadriculado, só com CSS */
-  background-image:
-    linear-gradient(var(--traco) 1px, transparent 1px),
-    linear-gradient(90deg, var(--traco) 1px, transparent 1px);
-  background-size: 1.5rem 1.5rem;
+  /* céu do pôr do sol, só com CSS */
+  background: linear-gradient(180deg, #12041f 0%, #2a0b45 40%, #6b1558 75%, #c2306b 100%) fixed;
   color: var(--tinta);
   font-family: var(--serif);
   font-size: 1rem;
@@ -56,15 +56,39 @@ h2 {
 }
 
 h1 {
-  font-size: 1.875rem;
+  font-family: var(--titulo);
+  font-size: 2.25rem;
+  font-weight: normal;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  background: var(--sol);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* sol retrô no horizonte */
+body::before {
+  content: '';
+  position: fixed;
+  left: 50%;
+  bottom: -9rem;
+  z-index: -1;
+  width: 24rem;
+  height: 24rem;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: linear-gradient(#ffd23f, #ff3d8b);
+  opacity: 0.2;
+  pointer-events: none;
 }
 
 h2 {
   font-family: var(--mono);
   font-size: 0.875rem;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--destaque);
+  color: var(--ok);
 }
 
 a {
@@ -83,18 +107,21 @@ select {
 
 button {
   padding: 0 var(--esp-3);
-  background: var(--tinta);
+  background: var(--sol);
   color: var(--papel);
-  border: 2px solid var(--tinta);
+  border: 0;
   border-radius: var(--raio);
+  font-weight: bold;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   cursor: pointer;
 }
 
 input,
 select {
   padding: 0 var(--esp-2);
-  background: #fff;
-  border: 2px solid var(--tinta);
+  background: var(--painel);
+  border: 2px solid var(--ok);
   border-radius: var(--raio);
 }
 
@@ -112,8 +139,9 @@ pre {
   margin: 0;
   padding: var(--esp-3);
   overflow-x: auto; /* a rolagem fica dentro do bloco, não na página */
-  background: var(--tinta);
-  color: var(--papel);
+  background: #0a0213;
+  color: #ffe3b8;
+  border-left: 4px solid var(--ok);
   font-family: var(--mono);
   font-size: 0.8125rem;
   line-height: 1.5;
@@ -129,8 +157,8 @@ main {
 /* Caixa de laboratório, usada por todos os labs */
 .lab {
   padding: var(--esp-3);
-  background: rgba(255, 255, 255, 0.7);
-  border: 2px dashed var(--tinta);
+  background: var(--painel);
+  border: 2px dashed var(--ok);
   border-radius: var(--raio);
 }
 
@@ -142,7 +170,7 @@ main {
 
 @media (min-width: 48rem) {
   h1 {
-    font-size: 2.75rem;
+    font-size: 3.5rem;
   }
 
   main {

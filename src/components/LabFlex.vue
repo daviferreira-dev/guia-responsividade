@@ -56,7 +56,7 @@ label {
   min-height: 9rem;
   margin-top: var(--esp-3);
   padding: var(--esp-2);
-  background: #fff;
+  background: var(--painel);
   border: 2px solid var(--tinta);
 }
 
@@ -64,7 +64,7 @@ label {
   flex: 0 0 5rem;
   margin: 0;
   background: var(--destaque);
-  color: #fff;
+  color: var(--papel);
   font-family: var(--mono);
   text-align: center;
 }

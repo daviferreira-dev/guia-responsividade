@@ -17,7 +17,7 @@ const codigo = `<!-- Botão de menu acessível -->
 button { min-height: 2.75rem; }   /* 2.75rem = 44px */
 
 /* foco visível para quem navega pelo teclado */
-:focus-visible { outline: 3px solid #b83a0a; outline-offset: 2px; }
+:focus-visible { outline: 3px solid #ff3d8b; outline-offset: 2px; }
 
 /* respeita quem desativou animações no sistema */
 @media (prefers-reduced-motion: reduce) {

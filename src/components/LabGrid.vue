@@ -65,8 +65,9 @@ const tabela = [1, 2, 3, 4, 5].map((n) => ({ n, px: n * 224 + (n - 1) * 16 }))
 .grade p {
   margin: 0;
   padding: var(--esp-3);
-  background: var(--tinta);
+  background: var(--sol);
   color: var(--papel);
+  font-weight: bold;
   font-family: var(--mono);
   text-align: center;
 }
