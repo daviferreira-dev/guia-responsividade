@@ -24,7 +24,7 @@ const proxima = computed(() => secoes[indice.value + 1])
 
 <template>
   <article>
-    <p class="rotulo">Seção {{ props.numero }} de 6</p>
+    <p class="rotulo">Seção {{ props.numero }} de 5</p>
     <h1>{{ titulo }}</h1>
 
     <section>

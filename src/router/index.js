@@ -9,7 +9,6 @@ const views = {
   '/secao/3': () => import('../views/Secao3.vue'),
   '/secao/4': () => import('../views/Secao4.vue'),
   '/secao/5': () => import('../views/Secao5.vue'),
-  '/secao/6': () => import('../views/Secao6.vue'),
   '/desafio': () => import('../views/Desafio.vue'),
 }
 

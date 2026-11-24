@@ -13,8 +13,7 @@ Guia interativo em Vue 3 + Vite que ensina a criar páginas responsivas. Projeto
 3. Flexbox e Grid — labs: flex e grid (contagem de colunas)
 4. Imagens responsivas — lab: imagem com e sem width/height
 5. Boas práticas em Vue — lab: `:key` no `v-for`
-6. Acessibilidade e testes (**tema provisório**, conferir com o PDF)
-7. Desafio
+6. Desafio
 
 O indicador no canto da tela mostra a largura da janela e o breakpoint ativo.
 
